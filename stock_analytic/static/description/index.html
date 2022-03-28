@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<h1 class="title">Stock Analytic</h1>
+
+<p>Adds an analytic account and analytic tags in stock move to be able to get
+analytic information when generating the journal items.</p>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#id1">Usage</a></h1>
+</div>
+<div class="section" id="to-assign-an-analytic-account-and-analytic-tags-to-a-stock-move">
+<h1><a class="toc-backref" href="#id2">To Assign an Analytic Account and Analytic Tags to a Stock Move</a></h1>
+<p>You need to:</p>
+<ol class="arabic simple">
+<li>Create manually or open draft picking</li>
+<li>Add move lines and fill <strong>analytic account</strong> and <strong>analytic tags</strong> fields</li>
+</ol>
+</div>
+<div class="section" id="assigned-journal-items-created-from-stock-move-with-analytic-account-and-analytic-tags">
+<h1><a class="toc-backref" href="#id3">Assigned Journal Items created from Stock Move with Analytic Account and Analytic Tags</a></h1>
+<p>If stock move automatically create journal entry, the journal entry will
+contain journal items with following rule:</p>
+<ol class="arabic simple">
+<li>Journal item with account equal to product’s valuation account will not be
+assigned to any analytic account, neither analytic tags</li>
+<li>Journal item with account different to product’s valuation account will be
+assigned to an analytic account according to the stock move’s analytic
+account. The same logic applies to analytic tags.</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>

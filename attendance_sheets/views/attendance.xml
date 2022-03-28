@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+        <record id="view_attendance_tree" model="ir.ui.view">
+            <field name="name">Attendance</field>
+            <field name="model">attendance.sheet</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Attendance">
+                    <field name="employee_code"/>
+                    <field name="employee_id"/>
+                    <field name="month"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_attendance_view" model="ir.actions.act_window">
+            <field name="name">Attendance Sheet</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">attendance.sheet</field>
+        </record>
+
+        <record id="view_attendance_form" model="ir.ui.view">
+            <field name="name">Attendance Sheet</field>
+            <field name="model">attendance.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Sheet">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_code"/>
+                                <field name="month"/>
+                                <field name="date_from"/>
+                            </group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="company_id"/>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <field name="attendance_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="att_date" force_save="1"/>
+                                <field name="day" force_save="1"/>
+                                <field name="att_type" force_save="1"/>
+                                <field name="oh" attrs="{'readonly': [('att_type','!=','wo')]}"/>
+                            </tree>
+                        </field>
+                        <group col="2">
+                            <group string="Monthly Total">
+                                <field name="work_over_time" readonly="1" force_save="1"/>
+                                <field name="work" readonly="1" force_save="1"/>
+                                <field name="sick" readonly="1" force_save="1"/>
+                                <field name="official" readonly="1" force_save="1"/>
+                                <field name="personal" readonly="1" force_save="1"/>
+                                <field name="salary_per_day" readonly="1" force_save="1"/>
+                                <field name="total_days" readonly="1" force_save="1"/>
+                            </group>
+                            <group string="OverTime">
+                                <field name="overtime_friday" readonly="1" force_save="1"/>
+                                <field name="amount_overtime_friday" readonly="1" force_save="1"/>
+                                <field name="overtime_ex_friday" readonly="1" force_save="1"/>
+                                <field name="amount_overtime_ex_friday" readonly="1" force_save="1"/>
+                            </group>
+                            <group string="Deduction">
+                                <field name="deduction" readonly="1" force_save="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!--<record id="attendance_sheet_view_search" model="ir.ui.view">-->
+            <!--<field name="name">attendance.sheet.search</field>-->
+            <!--<field name="model">attendance.sheet</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<search string="Attendance Sheet">-->
+                    <!--<separator/>-->
+                    <!--<field name="employee_code"/>-->
+                    <!--<field name="employee_id"/>-->
+                    <!--<separator/>-->
+                    <!--<group expand="1" string="Group By">-->
+                        <!--<separator/>-->
+                        <!--<filter string="Month" name='month' context="{'group_by':'month'}"/>-->
+                    <!--</group>-->
+                <!--</search>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+        <menuitem name="Attendance"
+                  id="attendance_menu_id" sequence="99" web_icon="attendance_sheets,static/src/img/attendance.png"
+                  groups="attendance_sheets.group_attendance_user,attendance_sheets.group_attendance_manager"/>
+
+        <menuitem name="Attendance Sheets" action="action_attendance_view" parent="attendance_sheets.attendance_menu_id"
+                  id="attendance_id" sequence="99"
+                  groups="attendance_sheets.group_attendance_user,attendance_sheets.group_attendance_manager"/>
+    </data>
+</odoo>

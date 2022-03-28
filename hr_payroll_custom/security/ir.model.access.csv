@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payroll_inputs_all,hr_payroll_custom.payroll_inputs,model_payroll_inputs,hr_payroll.group_hr_payroll_user,1,0,0,0
+access_payroll_inputs_officer,hr_payroll_custom.payroll_inputs_officer,model_payroll_inputs,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_payslip_run_officer,access.payslip_run_officer,hr_payroll.model_hr_payslip_run,hr_payroll.group_hr_payroll_user,1,1,1,0

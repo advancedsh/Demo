@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--        attendance user groups-->
+        <record model="ir.module.category" id="attendance_hr_user_group_category">
+            <field name="name">Attendance Sheet</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="group_attendance_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="attendance_sheets.attendance_hr_user_group_category"/>
+        </record>
+
+        <record id="group_attendance_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="implied_ids" eval="[(4, ref('group_attendance_user'))]"/>
+            <field name="category_id" ref="attendance_sheets.attendance_hr_user_group_category"/>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="view_hr_payslip_form_payslip" model="ir.ui.view">
+            <field name="name">hr.payslip.form.payslip</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='account_info']" position="after">
+                    <page name="attendance_sheet" string="Attendance Sheet">
+                        <group col="4">
+                            <field name="work" readonly="1" force_save="1"/>
+                            <field name="work_over_time" readonly="1" force_save="1"/>
+                            <field name="sick" readonly="1" force_save="1"/>
+                            <field name="personal" readonly="1" force_save="1"/>
+                            <field name="salary_per_day" readonly="1" force_save="1"/>
+                            <field name="official" readonly="1" force_save="1"/>
+                            <field name="overtime_friday" readonly="1" force_save="1"/>
+                            <field name="amount_overtime_friday" readonly="1" force_save="1"/>
+                            <field name="overtime_ex_friday" readonly="1" force_save="1"/>
+                            <field name="amount_overtime_ex_friday" readonly="1" force_save="1"/>
+                            <field name="deduction" readonly="1" force_save="1"/>
+                            <field name="total_days" readonly="1" force_save="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
